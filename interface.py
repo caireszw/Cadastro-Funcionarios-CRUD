@@ -1,5 +1,5 @@
-from rich import print
-from rich.panel import Panel
+from rich import print # type: ignore
+from rich.panel import Panel # type: ignore
 def menu(*texto):
     
     ## EXIBIR OPÇÔES
@@ -17,3 +17,16 @@ def selecionar_opcao(msg):
             break
         except ValueError:
             print('OPÇÃO INVALIDA TENTE NUMEROS')
+            
+def menu_buscar(*texto):
+    
+    ## EXIBIR OPÇÔES
+    contador = 1
+    msg = ''
+    for i in texto:
+        msg += f'{contador} - {i} \n'        
+        contador += 1 
+    print(Panel(msg,width=35,height=8, title= '[blue]BUSCAR PEDIDOS[/]'))
+    
+    
+
