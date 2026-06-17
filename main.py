@@ -4,7 +4,7 @@ import consultas
 import interface
 
 while True:
-    interface.menu('ADICIONAR PRODUTO','LISTA DE PEDIDOS','BUSCAR PEDIDOS','ATUALIZAR PEDIDO','REMOVER PEDIDO','SAIR DO PROGRAMA')
+    interface.menu('ADICIONAR PRODUTO','LISTA DE PEDIDOS','BUSCAR PEDIDOS','ATUALIZAR PEDIDO','REMOVER PEDIDO','RELATORIO PEDIDOS','SAIR DO PROGRAMA')
     opc1 = interface.selecionar_opcao('Digite a opção desejada: ')
     if opc1 == 1:
         consultas.adicionar_produto()
@@ -40,8 +40,10 @@ while True:
             except ValueError:
                 print('OPÇÂO INVALIDA')
     elif opc1 == 6:
+        consultas.relatorio()
+    elif opc1 == 7:
         print('FIM DO SISTEMA OBRIGADO!')
         break
-    elif opc1 > 6:
+    elif opc1 > 7:
         print('Opção Invalida!')   
     sleep(2)

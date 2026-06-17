@@ -219,3 +219,34 @@ def buscar_status():
     else:
         print(f'ERRO NA API! CODIGO:{requisicao_api.status_code}')
 
+
+def relatorio():
+    link_api = 'https://6a1f6ebfb79eec0d6cf0c2c9.mockapi.io/api/pedidos/SistemaPedido'
+    requisicao_api = requests.get(link_api)
+    dados = requisicao_api.json()
+    
+    # soma do valor total e total de pedidos
+    somador = 0   
+    contador = 0
+    em_rota = 0
+    pendente = 0
+    entregue = 0 
+    for item in dados:
+        somador += item["Quantidade"] * item["Valor_Unitario"]
+        contador += 1
+        
+    for item in dados:
+        if item["Status"] == 'EM ROTA':
+            em_rota += 1
+        elif item["Status"] == 'PENDENTE':
+            pendente += 1        
+        elif item["Status"] == 'ENTREGUE':
+            entregue += 1
+        
+        
+    print(Panel(f'NUMERO DE PEDIDOS: {contador} \nVALOR TOTAL DOS PEDIDOS: [green]R${somador:.2f}[/] \nPEDIDOS | [red]PENDENTE:{pendente}[/] | [blue]EM ROTA: {em_rota}[/] | [green]ENTREGUE: {entregue}[/]',width=55,title='RELATORIO'))
+    
+
+
+
+

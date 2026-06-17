@@ -8,7 +8,7 @@ def menu(*texto):
     for i in texto:
         msg += f'{contador} - {i} \n'        
         contador += 1 
-    print(Panel(msg,width=35,height=8, title= '[blue]SISTEMA DE PEDIDOS[/]'))
+    print(Panel(msg,width=35,height=9, title= '[blue]SISTEMA DE PEDIDOS[/]'))
     
 def selecionar_opcao(msg):
     while True:
@@ -26,7 +26,7 @@ def menu_buscar(*texto):
     for i in texto:
         msg += f'{contador} - {i} \n'        
         contador += 1 
-    print(Panel(msg,width=35,height=8, title= '[blue]BUSCAR PEDIDOS[/]'))
+    print(Panel(msg,width=35,height=12, title= '[blue]BUSCAR PEDIDOS[/]'))
     
     
 
